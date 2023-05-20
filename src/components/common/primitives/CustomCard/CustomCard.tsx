@@ -81,7 +81,7 @@ export const CustomCard = ({
                 }
             />
             <CardContent>
-                <Grid container spacing={2} xs={12}>
+                <Grid container spacing={2} >
                     <Grid item xs={12}>
                         <Grid container>
                             <Grid item xs={8}>
@@ -110,8 +110,8 @@ export const CustomCard = ({
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs={12} spacing={1}>
-                        <Grid container xs={12} spacing={1}>
+                    <Grid item xs={12} >
+                        <Grid container spacing={1}>
                             <Grid item xs={8} display="flex" alignItems="center">
                                 <Box fontWeight="bold" display="flex" alignItems="center">
                                     Прогноз :
@@ -127,8 +127,8 @@ export const CustomCard = ({
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs={12} spacing={1}>
-                        <Grid container xs={12} spacing={1}>
+                    <Grid item xs={12} >
+                        <Grid container  spacing={1}>
                             <Grid item xs={8}>
                                 <Typography  gutterBottom fontWeight="bold">
                                     Последняя замена ротора :
@@ -148,9 +148,9 @@ export const CustomCard = ({
                 <Box className={css.icon}>
                     {getRotorIcon(activeRotor.rotorNumber)}
                 </Box>
-                <Grid container xs={12} spacing={1}>
+                <Grid container  spacing={1}>
                     <Grid item xs={12}>
-                        <Grid container xs={12} spacing={1}>
+                        <Grid container  spacing={1}>
                             <Grid item xs={6}>
                                 <Box  display="flex" alignItems="center" justifyContent="flex-start"
                                      gap={1}>
@@ -168,7 +168,7 @@ export const CustomCard = ({
                         </Grid>
                     </Grid>
                     <Grid item xs={12}>
-                        <Grid container xs={12} spacing={1}>
+                        <Grid container  spacing={1}>
                             <Grid item xs={6}>
                                 <Box display="flex" alignItems="center" justifyContent="flex-start" gap={1}>
                                     <VibrationRoundedIcon/>
@@ -185,7 +185,7 @@ export const CustomCard = ({
                         </Grid>
                     </Grid>
                     <Grid item xs={12}>
-                        <Grid container xs={12} spacing={1}>
+                        <Grid container spacing={1}>
                             <Grid item xs={6}>
                                 <Box display="flex" alignItems="center" justifyContent="flex-start" gap={1}>
                                     <DeviceThermostatRoundedIcon/>

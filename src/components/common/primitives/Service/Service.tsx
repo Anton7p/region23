@@ -24,7 +24,7 @@ export const Service = () => {
         <Container maxWidth="xl">
             <Item><Typography variant="h5">Агломерационный цех №2</Typography></Item>
 
-            <Grid container xs={12} spacing={1} display="flex" alignItems="center" top={1}
+            <Grid container spacing={1} display="flex" alignItems="center" top={1}
                   justifyContent="flex-end">
                 <Grid item>
                     <Box display="flex" alignItems="center" justifyContent="flex-start" gap={1}>
