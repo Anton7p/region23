@@ -21,7 +21,7 @@ export const Service = () => {
         <div className={css.title}>Агломерационный цех №2</div>
         <div className={css.cards}>
             {exhausters.map(card => {
-                return <ExhausterCard {...card}/>
+                return <ExhausterCard key={card.exhausterNumber} {...card}/>
             })}
         </div>
     </div>)
