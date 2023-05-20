@@ -65,7 +65,7 @@ export const CustomCard = ({
     };
 
     return (
-        <Card sx={{width: 345}}>
+        <Card sx={{maxWidth: 345}}>
             <CardHeader
                 sx={{background: "var(--bs-secondary)"}}
                 action={

@@ -14,14 +14,15 @@ const Item = styled(Paper)(({theme}) => ({
     backgroundColor: "var(--bs-secondary)",
     color: "var(--bs-white)",
     padding: theme.spacing(1),
-    marginBottom: 10
+    marginBottom: 10,
+    marginTop: 10
 }));
 
 export const Service = () => {
     return (
 
         <Container maxWidth="xl">
-            <Item><Typography variant="h4">Агломерационный цех №2</Typography></Item>
+            <Item><Typography variant="h5">Агломерационный цех №2</Typography></Item>
 
             <Grid container xs={12} spacing={1} display="flex" alignItems="center" top={1}
                   justifyContent="flex-end">
