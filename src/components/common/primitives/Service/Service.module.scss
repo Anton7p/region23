@@ -19,7 +19,7 @@
 .title {
   white-space: nowrap;
   width: 100%;
-  @include adaptive-property('font-size', 24px, 22px, 20px);
+  @include adaptive-property('font-size', 22px, 20px, 18px);
   @include adaptive-property('height', 50px, 40px, 30px);
   background: var(--bs-bg-gray);
   box-shadow: 0 1px 3px 0 var(--bs-bg-gray);

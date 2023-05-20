@@ -6,15 +6,12 @@ import cn from "classnames";
 
 export interface ButtonTextProps {
     children: ReactNode;
-    className: string;
+    className: "header" | "card" | "forecast"
 }
 
-export const getClassName = (style: Record<string, string>, className: string) => {
-    return style[className]
-}
 export const Button: FC<ButtonTextProps> = ({children, className}) => {
     return (
-        <button type="button" className={cn(getClassName(css, className), css.button)}>
+        <button type="button" className={cn(css[className], css.button)}>
             {children}
         </button>
     )
