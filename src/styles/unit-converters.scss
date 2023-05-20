@@ -1,0 +1,23 @@
+@use 'sass:math';
+
+// px => rem
+@function rem($px) {
+  $unitless-px: remove-units($px);
+  @return math.div($unitless-px, 16) + rem;
+}
+
+// px => em
+@function em($px, $fontSize: 16) {
+  $unitless-px: remove-units($px);
+  $unitless-fontSize: remove-units($fontSize);
+
+  @return math.div($unitless-px, $unitless-fontSize) + em;
+}
+
+@function remove-units($value) {
+  @if ($value == null) {
+    @return null;
+  }
+
+  @return math.div($value, $value * 0 + 1);
+}

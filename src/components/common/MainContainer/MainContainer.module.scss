@@ -1,0 +1,20 @@
+@import '../../../styles/adaptive-properties.scss';
+@import '../../../styles/global-scss-variables.scss';
+
+
+.body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+
+}
+
+.main {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+}
+

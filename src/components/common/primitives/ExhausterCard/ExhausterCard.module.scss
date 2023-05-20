@@ -1,0 +1,190 @@
+@import '../../../../styles/adaptive-properties.scss';
+
+
+.card {
+  width: 100%;
+  max-width: 320px;
+  border: 1px solid var(--bs-bg-gray);
+  @include adaptive-property('border-radius', 10px, 8px, 6px);
+  box-shadow: 0 2px 10px 0 var(--bs-bg-gray);
+
+  .title {
+    .name {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      color: #FFFFFF;
+    }
+
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    @include adaptive-property('border-top-left-radius', 6px, 4px, 2px);
+    @include adaptive-property('border-top-right-radius', 6px, 4px, 2px);
+    @include adaptive-property('height', 40px, 34px, 30px);
+    background: var(--bs-secondary);
+    @include adaptive-property('padding-left', 16px, 14px, 12px);
+    @include adaptive-property('padding-right', 16px, 14px, 12px);
+  }
+
+  .icon {
+    @include adaptive-property('padding-left', 16px, 14px, 12px);
+    @include adaptive-property('padding-right', 16px, 14px, 12px);
+    @include adaptive-property('padding-top', 20px, 18px, 16px);
+    @include adaptive-property('padding-bottom', 20px, 18px, 16px);
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .forecast {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    &__item {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      line-height: normal;
+      @include adaptive-property('font-size', 16px, 14px, 12px);
+      @include adaptive-property('padding-left', 16px, 14px, 12px);
+      @include adaptive-property('padding-right', 16px, 14px, 12px);
+      @include adaptive-property('padding-top', 20px, 18px, 16px);
+      @include adaptive-property('padding-bottom', 20px, 18px, 16px);
+
+      &__date {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: normal;
+        gap: 10px;
+
+        span {
+          @include adaptive-property('padding-left', 10px, 8px, 6px);
+          @include adaptive-property('padding-right', 10px, 8px, 6px);
+          @include adaptive-property('border-radius', 6px, 4px, 2px);
+          background: var(--bs-bg-gray);
+        }
+      }
+
+      &__name {
+        font-weight: bold;
+        white-space: nowrap;
+        @include adaptive-property('font-size', 20px, 18px, 16px);
+      }
+
+      &__button {
+        background: #FFFFFF;
+      }
+    }
+
+    &__replacement {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: column;
+      line-height: normal;
+      @include adaptive-property('font-size', 20px, 18px, 16px);
+      @include adaptive-property('padding-left', 16px, 14px, 12px);
+      @include adaptive-property('padding-right', 16px, 14px, 12px);
+      @include adaptive-property('padding-top', 20px, 18px, 16px);
+      @include adaptive-property('padding-bottom', 20px, 18px, 16px);
+      background: var(--bs-light);
+
+      &__title {
+        font-weight: bold;
+        @include adaptive-property('font-size', 20px, 18px, 16px);
+      }
+
+      &__content {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-weight: normal;
+        @include adaptive-property('padding-left', 20px, 18px, 16px);
+        @include adaptive-property('padding-left', 20px, 18px, 16px);
+        @include adaptive-property('padding-right', 20px, 18px, 16px);
+        @include adaptive-property('gap', 20px, 18px, 16px);
+
+        @include adaptive-property('padding-top', 20px, 18px, 16px);
+        @include adaptive-property('padding-bottom', 20px, 18px, 16px);
+        @include adaptive-property('border-radius', 6px, 4px, 2px);
+
+        .content__date {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: normal;
+          @include adaptive-property('font-size', 26px, 24px, 22px);
+          @include adaptive-property('padding-left', 10px, 8px, 6px);
+          @include adaptive-property('height', 42px, 38px, 36px);
+          @include adaptive-property('padding-right', 10px, 8px, 6px);
+          @include adaptive-property('border-radius', 6px, 4px, 2px);
+
+          background: var(--bs-bg-gray);
+        }
+
+        .content__forecast {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+
+          span {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 10px;
+          }
+
+          @include adaptive-property('font-size', 20px, 18px, 16px);
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+.property{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  @include adaptive-property('padding-left', 20px, 18px, 16px);
+  @include adaptive-property('padding-right', 20px, 18px, 16px);
+  @include adaptive-property('padding-bottom', 20px, 18px, 16px);
+  @include adaptive-property('gap', 8px, 6px, 4px);
+  &__content{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @include adaptive-property('gap', 18px, 16px, 14px);
+    &__title{
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      @include adaptive-property('gap', 8px, 6px, 4px);
+    }
+    &__value{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 20px;
+      @include adaptive-property('font-size', 20px, 18px, 16px);
+      @include adaptive-property('gap', 8px, 6px, 4px);
+    }
+  }
+}

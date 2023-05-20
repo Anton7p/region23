@@ -1,0 +1,27 @@
+@import '../../../../styles/adaptive-properties.scss';
+
+.container {
+  svg {
+    @include adaptive-property('width', 10px, 8px, 6px);
+    @include adaptive-property('height', 10px, 8px, 6px);
+  }
+}
+
+.error {
+  svg * {
+    fill: var(--bs-red)
+  }
+}
+
+.normal {
+  svg * {
+    fill: var(--bs-success)
+  }
+}
+
+.warning {
+  svg * {
+    fill: var(--bs-warning)
+  }
+}
+

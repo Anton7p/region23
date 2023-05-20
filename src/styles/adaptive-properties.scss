@@ -1,0 +1,102 @@
+@use 'sass:math';
+@import './unit-converters.scss';
+@import './global-scss-variables.scss';
+
+$unitless-min-desktop-width: remove-units($min-desktop-width);
+$unitless-min-mobile-width: remove-units($min-mobile-width);
+$unitless-min-tablet-width: remove-units($min-tablet-width);
+
+@mixin adaptive-font($desktopFont, $tabletFont: null, $mobileFont: null) {
+  @include adaptive-property('font-size', $desktopFont, $tabletFont, $mobileFont);
+}
+
+@mixin adaptive-property($property, $desktopSize, $tabletSize: null, $mobileSize: null) {
+  $unitlessDesktopSize: remove-units($desktopSize);
+  $unitlessMobileSize: remove-units($mobileSize);
+  $unitlessTabletSize: remove-units($tabletSize);
+
+  $diffConstant: get-diff-relation-constant();
+
+  $unitlessMobileSize: if(
+    $unitlessMobileSize == null,
+    calc-mobile-size($unitlessDesktopSize, $unitlessTabletSize, $diffConstant),
+    $unitlessMobileSize
+  );
+
+  $unitlessTabletSize: if(
+    $unitlessTabletSize == null,
+    calc-tablet-size($unitlessDesktopSize, $unitlessMobileSize, $diffConstant),
+    $unitlessTabletSize
+  );
+
+  #{$property}: $unitlessDesktopSize + px;
+  @if $unitlessTabletSize != null or $unitlessMobileSize != null {
+    @media (max-width: #{$min-desktop-width}) {
+      #{$property}: calc(
+        #{$unitlessTabletSize + px} + (#{$unitlessDesktopSize} - #{$unitlessTabletSize}) * (
+            100vw - #{$unitless-min-tablet-width + px}
+          ) / (#{$unitless-min-desktop-width} - #{$unitless-min-tablet-width})
+      );
+    }
+
+    @media (max-width: #{$min-tablet-width}) {
+      #{$property}: calc(
+        #{$unitlessMobileSize + px} + (#{$unitlessTabletSize} - #{$unitlessMobileSize}) * (
+            100vw - #{$unitless-min-mobile-width + px}
+          ) / (#{$unitless-min-tablet-width} - #{$unitless-min-mobile-width})
+      );
+    }
+  }
+}
+
+@function get-diff-relation-constant() {
+  @return math.div(
+    $unitless-min-desktop-width - $unitless-min-tablet-width,
+    $unitless-min-tablet-width - $unitless-min-mobile-width
+  );
+}
+
+@function calc-mobile-size($desktopSize, $tabletSize, $diffConstant) {
+  @if $tabletSize == null {
+    @return null;
+  }
+
+  @return math.div($tabletSize * ($diffConstant + 1) - $desktopSize, $diffConstant);
+}
+
+@function calc-tablet-size($desktopSize, $mobileSize, $diffConstant) {
+  @if $mobileSize == null {
+    @return null;
+  }
+
+  @return math.div($desktopSize + $diffConstant * $mobileSize, $diffConstant + 1);
+}
+
+@mixin adaptive-property-old($property, $maxSize, $minSize) {
+  $unitlessMaxSize: remove-units($maxSize);
+  $unitlessMinSize: remove-units($minSize);
+
+  $addSize: $unitlessMaxSize - $unitlessMinSize;
+
+  #{$property}: $unitlessMaxSize + px;
+  @media (max-width: #{$min-desktop-width}) {
+    #{$property}: calc(
+      #{$unitlessMinSize + px} + #{$addSize} * (100vw - #{$unitless-min-mobile-width + px}) /
+        (#{$unitless-min-desktop-width} - #{$unitless-min-mobile-width})
+    );
+  }
+}
+
+// TODO: make this work
+@mixin adaptive-font-rem($maxFontSize, $minFontSize) {
+  $addFontSize: $maxFontSize - $minFontSize;
+  $unitless-content-container-width: remove-units($min-desktop-width);
+
+  font-size: rem($maxFontSize);
+  @media (max-width: #{$min-desktop-width}) {
+    font-size: calc(
+      #{rem($minFontSize)} + #{rem($addFontSize)} * (100vw - #{rem($unitless-min-mobile-width)}) /
+        (#{rem(#{$unitless-content-container-width})} - #{rem($unitless-min-mobile-width)})
+    );
+  }
+}
