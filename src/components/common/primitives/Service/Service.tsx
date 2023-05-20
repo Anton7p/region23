@@ -40,10 +40,12 @@ export const Service = () => {
                     </Box>
                 </Grid>
             </Grid>
-            <Container className={css.cards} maxWidth="xl">
+            <Grid  container className={css.cards} spacing={1} >
                 {exhausters.map(card => (
+                    <Grid item>
                         <CustomCard  {...card} key={card.exhausterNumber}/>
+                    </Grid>
                 ))}
-            </Container>
+            </Grid>
         </Container>)
 };
