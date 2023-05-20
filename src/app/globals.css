@@ -24,7 +24,6 @@ ol[class] {
 }
 
 button {
-    color: inherit;
     border: none;
     font: inherit;
 }
@@ -35,7 +34,7 @@ button {
     --bs-gray: #272d31;
     --bs-bg-gray: #dedede;
     --bs-gray-dark: #343a40;
-    --bs-primary:  #002f6c;
+    --bs-primary: #002f6c;
     --bs-indigo: #6610f2;
     --bs-purple: #6f42c1;
     --bs-pink: #d63384;

@@ -5,21 +5,7 @@ $padding: 0px;
 .header {
   width: 100%;
   display: flex;
+  justify-content: flex-end;
   @include adaptive-property('padding-left', $padding, $padding, 20px);
   @include adaptive-property('padding-right', $padding, $padding, 20px);
-
-  .links {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    @include adaptive-property('gap', 16px, 11px, 6px);
-
-    .route {
-      color: #FFFFFF;
-      font-style: normal;
-      font-weight: 700;
-      @include adaptive-property('font-size', 20px, 20px, 15px);
-    }
-  }
 }

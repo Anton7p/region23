@@ -8,9 +8,7 @@ import ArrowBackIcon from "../../../../public/images/arrow_back.svg";
 export const Header = () => {
     return (
         <header className={css.header}>
-            <div className={css.links}>
                 <Button className="header"><ArrowBackIcon/>На главную</Button>
-            </div>
         </header>
     );
 };
