@@ -153,7 +153,7 @@ export const ExhausterCard = ({
         )}
       </div>
 
-      <div className={classNames({ [css.open]: additional }, css.additional)}>
+      <div className={classNames({ [css.open]: !additional }, css.additional)}>
         <div className={css.forecast__item}>
           <div className={css.forecast__item__date}>
             <Select

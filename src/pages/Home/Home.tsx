@@ -15,7 +15,7 @@ const Home: FC = () => {
       <div className={css.control}>
         <HomeIndicator />
         <Button className="additional" onClick={() => setAdditional((prev) => !prev)}>
-          Параметры опоры
+          {additional ? 'Скрыть параметры опор' : 'Показать параметры опор'}
         </Button>
       </div>
       <div className={css.cards}>
