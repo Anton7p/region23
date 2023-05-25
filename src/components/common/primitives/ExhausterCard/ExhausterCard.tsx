@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { useNavigate } from 'react-router';
+
 import css from './ExhausterCard.module.scss';
 
 import { ReactComponent as ArrowIcon } from '../../../../assets/images/arrow_left.svg';
@@ -14,6 +16,8 @@ import { ReactComponent as ElectricIcon } from '../../../../assets/images/electr
 import { EStatus, Indicator } from '../Indicator';
 import { Button } from '../Button';
 import Select from '../CustomSelect/Select';
+
+import { urls } from '../../../../constants/urls';
 
 export type TExhauster = {
   status: EStatus;
@@ -50,7 +54,10 @@ export type TRotor = {
 
 export const ExhausterCard = ({ status, exhausterNumber, rotors }: TExhauster) => {
   const [activeRotor, setActiveRotor] = useState<TRotor>(rotors[0]);
-
+  const navigate = useNavigate();
+  const handleRouteChange = (id: number) => {
+    navigate(`/${urls.chart}/${id}`);
+  };
   return (
     <div className={css.card}>
       <div className={css.title}>
@@ -58,7 +65,7 @@ export const ExhausterCard = ({ status, exhausterNumber, rotors }: TExhauster) =
           <Indicator status={status} />
           <span> {`Эксгаустер №${exhausterNumber}`}</span>
         </div>
-        <Button className="card">
+        <Button className="card" onClick={() => handleRouteChange(exhausterNumber)}>
           Параметры <ArrowIcon />
         </Button>
       </div>
