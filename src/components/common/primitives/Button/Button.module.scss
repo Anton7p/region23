@@ -10,35 +10,18 @@
   gap: 10px;
 }
 
-.header:active {
-  transform: scale(0.98);
-  box-shadow: 0 2px 10px 0 var(--bs-gray-dark);
+.additional:active {
+  transform: scale(0.99);
 }
 
-.header {
-  svg {
-    path {
-      fill: #FFFFFF;
-    }
-
-    @include adaptive-property('width', 20px, 18px, 16px);
-    @include adaptive-property('height', 20px, 18px, 16px);
-  }
-
-  text-align: center;
-  color: #FFFFFF;
-  font-style: normal;
-  font-weight: 400;
+.additional {
+  color: var(--bs-white);;
+  background: var(--bs-gray);
   @include adaptive-property('font-size', 20px, 18px, 16px);
   @include adaptive-property('height', 40px, 36px, 32px);
   @include adaptive-property('padding-left', 32px, 28px, 24px);
   @include adaptive-property('padding-right', 32px, 28px, 24px);
-
-  background: var(--bs-secondary);
-  mix-blend-mode: screen;
-  box-shadow: 0 3px 11px 0 var(--bs-secondary);
-  @include adaptive-property('border-radius', 10px, 8px, 6px);
-  transition: 0.2s all;
+  @include adaptive-property('border-radius', 6px, 6px, 5px);
 }
 
 .card {
@@ -46,7 +29,7 @@
     path {
       fill: var(--bs-gray-dark);
     }
-    color: #FFFFFF;
+    color:var(--bs-white);;
     @include adaptive-property('width', 35px, 30px, 25px);
     @include adaptive-property('height', 35px, 30px, 25px);
   }

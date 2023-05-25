@@ -7,7 +7,7 @@ import css from './Button.module.scss';
 export interface ButtonTextProps {
   children: ReactNode;
   onClick: () => void;
-  className: 'header' | 'card' | 'forecast';
+  className: string;
 }
 
 export const Button: FC<ButtonTextProps> = ({ children, className, onClick }) => {

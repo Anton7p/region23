@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router';
+import classNames from 'classnames';
 
 import css from './ExhausterCard.module.scss';
 
@@ -51,8 +52,15 @@ export type TRotor = {
   vibrationStatus: EStatus;
   temperatureStatus: EStatus;
 };
-
-export const ExhausterCard = ({ status, exhausterNumber, rotors }: TExhauster) => {
+type TExhausterCardProps = {
+  additional: boolean;
+} & TExhauster;
+export const ExhausterCard = ({
+  status,
+  exhausterNumber,
+  rotors,
+  additional,
+}: TExhausterCardProps) => {
   const [activeRotor, setActiveRotor] = useState<TRotor>(rotors[0]);
   const navigate = useNavigate();
   const handleRouteChange = (id: number) => {
@@ -144,8 +152,9 @@ export const ExhausterCard = ({ status, exhausterNumber, rotors }: TExhauster) =
           </div>
         )}
       </div>
-      <div className={css.forecast__item}>
-        {activeRotor && (
+
+      <div className={classNames({ [css.open]: additional }, css.additional)}>
+        <div className={css.forecast__item}>
           <div className={css.forecast__item__date}>
             <Select
               text="ОПОРА"
@@ -160,13 +169,10 @@ export const ExhausterCard = ({ status, exhausterNumber, rotors }: TExhauster) =
               {activeRotor.lastReplacementDate}
             </span>
           </div>
-        )}
-      </div>
-      {activeRotor && (
-        <div className={css.icon}>{getRotorIcon(activeRotor.rotorNumber)}</div>
-      )}
+        </div>
 
-      {activeRotor && (
+        <div className={css.icon}>{getRotorIcon(activeRotor.rotorNumber)}</div>
+
         <div className={css.property}>
           <div className={css.property__content}>
             <span className={css.property__content__title}>
@@ -199,7 +205,7 @@ export const ExhausterCard = ({ status, exhausterNumber, rotors }: TExhauster) =
             <Indicator status={activeRotor.temperatureStatus} />
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };
