@@ -2,8 +2,8 @@
 
 .container {
   svg {
-    @include adaptive-property('width', 10px, 8px, 6px);
-    @include adaptive-property('height', 10px, 8px, 6px);
+    @include adaptive-property('width', 20px, 18px, 16px);
+    @include adaptive-property('height', 20px, 18px, 16px);
   }
 }
 

@@ -1,0 +1,44 @@
+@import '../../styles/adaptive-properties.scss';
+
+.list {
+  display: flex;
+
+  align-items: stretch;
+  width: 100%;
+  background-color: var(--bs-white);
+  white-space: nowrap;
+  flex-wrap: wrap;
+  @include adaptive-property('padding-left', 130px, 100px, 90px);
+}
+
+.tab {
+  padding: 19px 24px;
+  cursor: pointer;
+  transition: color var(--td) ease-in-out;
+  height: 56px;
+  span {
+    @include adaptive-property('font-size', 18px, 16px, 14px)
+  }
+
+  &:hover,
+  &:active {
+    color: var(--bs-primary);
+  }
+
+  &__active {
+    position: relative;
+    color: var(--bs-gray);
+    border-bottom: 2px solid var(--bs-primary);
+    transition: border-bottom-color var(--bs-primary) ease-in-out;
+    outline: none;
+    font-weight: 700;
+
+    span {
+      color: var(--bs-primary);
+    }
+
+    &:hover {
+      border-bottom-color: var(--bs-primary);
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import '../../styles/adaptive-properties.scss';
+
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: var(--bs-white);
+  font-weight: bold;
+
+
+  h1 {
+    @include adaptive-property('font-size', 40px, 30px, 25px);
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid var(--bs-gray);
+  }
+
+  &__title {
+    @include adaptive-property('padding-top', 40px, 30px, 25px);
+    @include adaptive-property('padding-bottom', 40px, 30px, 25px);
+    @include adaptive-property('padding-left', 130px, 100px, 90px);
+    @include adaptive-property('padding-right', 16px, 14px, 12px);
+    align-items: center;
+    display: flex;
+    border-bottom: 1px solid var(--bs-gray-dark);
+  }
+}

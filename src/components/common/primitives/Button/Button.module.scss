@@ -20,6 +20,7 @@
     path {
       fill: #FFFFFF;
     }
+
     @include adaptive-property('width', 20px, 18px, 16px);
     @include adaptive-property('height', 20px, 18px, 16px);
   }
@@ -45,20 +46,22 @@
     path {
       fill: var(--bs-gray-dark);
     }
-
-    box-shadow: 0 1px 1px 0 var(--bs-gray-dark);
-    transition: 0.2s all;
     color: #FFFFFF;
-    @include adaptive-property('width', 24px, 22px, 20px);
-    @include adaptive-property('height', 24px, 22px, 20px);
+    @include adaptive-property('width', 35px, 30px, 25px);
+    @include adaptive-property('height', 35px, 30px, 25px);
   }
-  @include adaptive-property('border-radius', 4px,3px,2px);
+  background-color: var(--bs-white);
+  @include adaptive-property('border-radius', 6px, 6px, 5px);
+  box-shadow: 0 1px 1px 0 var(--bs-white);
+  transition: 0.2s all;
+  @include adaptive-property('padding-left', 16px, 14px, 12px);
   &:active {
     transform: scale(0.98);
-    box-shadow: 0 0.5px 0.5px 0 var(--bs-gray-dark);
+    box-shadow: 0 0.5px 0.5px 0 var(--bs-white);
   }
 }
-.forecast{
+
+.forecast {
   text-decoration: underline;
   background: initial;
   color: var(--bs-indigo);

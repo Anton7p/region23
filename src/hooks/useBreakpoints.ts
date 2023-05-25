@@ -1,6 +1,5 @@
-"use client"
-import {MIN_DESKTOP_WIDTH} from '@/constants';
 import {useWindowSize} from './useWindowSize';
+import {MIN_DESKTOP_WIDTH} from "../constants";
 
 export const useBreakpoints = () => {
     const {windowSize} = useWindowSize();

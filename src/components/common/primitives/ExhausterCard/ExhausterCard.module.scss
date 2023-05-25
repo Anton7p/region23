@@ -1,0 +1,202 @@
+@import '../../../../styles/adaptive-properties.scss';
+
+
+.card {
+  width: 100%;
+  max-width: 450px;
+  overflow: hidden;
+  border: 1px solid var(--bs-secondary);
+  @include adaptive-property('border-top-left-radius', 16px, 14px, 12px);
+  @include adaptive-property('border-top-right-radius', 16px, 14px, 12px);
+  box-shadow: 0 2px 10px 0 var(--bs-bg-gray);
+
+  .title {
+
+    .name {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      color: #FFFFFF;
+      @include adaptive-property('font-size', 24px, 22px, 20px);
+    }
+
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    @include adaptive-property('height', 70px, 60px, 50px);
+    background: var(--bs-secondary);
+    @include adaptive-property('padding-left', 16px, 14px, 12px);
+    @include adaptive-property('padding-right', 16px, 14px, 12px);
+  }
+
+  .icon {
+    @include adaptive-property('padding-left', 16px, 14px, 12px);
+    @include adaptive-property('padding-right', 16px, 14px, 12px);
+    @include adaptive-property('padding-top', 20px, 18px, 16px);
+    @include adaptive-property('padding-bottom', 20px, 18px, 16px);
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .forecast {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    &__item {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      line-height: normal;
+      @include adaptive-property('font-size', 16px, 14px, 12px);
+      @include adaptive-property('padding-left', 16px, 14px, 12px);
+      @include adaptive-property('padding-right', 16px, 14px, 12px);
+      @include adaptive-property('padding-top', 20px, 18px, 16px);
+      @include adaptive-property('padding-bottom', 20px, 18px, 16px);
+
+      &__date {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: normal;
+        gap: 10px;
+        width: 100%;
+
+        span {
+          @include adaptive-property('padding-left', 10px, 8px, 6px);
+          @include adaptive-property('padding-right', 10px, 8px, 6px);
+          @include adaptive-property('border-radius', 6px, 4px, 2px);
+          background: var(--bs-bg-gray);
+          @include adaptive-property('font-size', 20px, 18px, 16px);
+        }
+      }
+
+      &__name {
+        font-weight: bold;
+        white-space: nowrap;
+        @include adaptive-property('font-size', 20px, 18px, 16px);
+      }
+
+      &__button {
+        background: #FFFFFF;
+      }
+    }
+
+    &__replacement {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: column;
+      line-height: normal;
+      @include adaptive-property('padding-left', 16px, 14px, 12px);
+      @include adaptive-property('padding-right', 16px, 14px, 12px);
+      @include adaptive-property('padding-top', 20px, 18px, 16px);
+      @include adaptive-property('margin-bottom', 20px, 18px, 16px);
+      background: var(--bs-light);
+
+      &__title {
+        font-weight: bold;
+        @include adaptive-property('font-size', 24px, 22px, 20px);
+      }
+
+      &__content {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-weight: normal;
+        @include adaptive-property('padding-left', 20px, 18px, 16px);
+        @include adaptive-property('padding-left', 20px, 18px, 16px);
+        @include adaptive-property('padding-right', 20px, 18px, 16px);
+        @include adaptive-property('gap', 20px, 18px, 16px);
+
+        @include adaptive-property('padding-top', 20px, 18px, 16px);
+        @include adaptive-property('padding-bottom', 20px, 18px, 16px);
+        @include adaptive-property('border-radius', 6px, 4px, 2px);
+
+        .content__date {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: normal;
+          @include adaptive-property('font-size', 26px, 24px, 22px);
+          @include adaptive-property('padding-left', 10px, 8px, 6px);
+          @include adaptive-property('height', 42px, 38px, 36px);
+          @include adaptive-property('padding-right', 10px, 8px, 6px);
+          @include adaptive-property('border-radius', 6px, 4px, 2px);
+
+          background: var(--bs-bg-gray);
+        }
+
+        .content__forecast {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+
+          span {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 10px;
+          }
+
+          @include adaptive-property('font-size', 20px, 18px, 16px);
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+.property {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  @include adaptive-property('padding-left', 20px, 18px, 16px);
+  @include adaptive-property('padding-right', 20px, 18px, 16px);
+  @include adaptive-property('padding-bottom', 20px, 18px, 16px);
+
+  @include adaptive-property('gap', 8px, 6px, 4px);
+
+  &__content {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @include adaptive-property('gap', 18px, 16px, 14px);
+
+    &__title {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      @include adaptive-property('gap', 8px, 6px, 4px);
+      svg {
+        max-width: 24px;
+        max-height: 24px;
+      }
+    }
+
+    &__value {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 20px;
+      white-space: nowrap;
+      @include adaptive-property('font-size', 20px, 18px, 16px);
+      @include adaptive-property('gap', 8px, 6px, 4px);
+    }
+  }
+}

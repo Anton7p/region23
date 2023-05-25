@@ -1,0 +1,38 @@
+@use '../../styles/media' as *;
+@import '../../styles/adaptive-properties.scss';
+
+
+.home {
+  overflow: auto;
+  height: 100%;
+  @include adaptive-property('margin-top', 40px, 30px, 25px);
+  @include adaptive-property('padding-bottom', 40px, 30px, 25px);
+  @include adaptive-property('margin-left', 110px, 90px, 70px);
+  @include adaptive-property('margin-right', 16px, 14px, 12px);
+}
+
+.info {
+  gap: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  @include adaptive-property('padding-bottom', 40px, 30px, 25px);
+  &__name {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+    width: content-box;
+  }
+}
+
+.cards {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  @include adaptive-property('gap', 20px, 18px, 16px);
+  @include adaptive-property('margin-bottom', 100px, 100px, 100px);
+}

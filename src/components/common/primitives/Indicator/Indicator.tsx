@@ -1,20 +1,21 @@
-import React from "react";
-import IndicatorIcon from '../../../../../public/images/indicator.svg'
+import React from 'react';
+
+import classnames from 'classnames';
+
+import { ReactComponent as IndicatorIcon } from '../../../../assets/images/indicator.svg';
 
 import css from './Indicator.module.scss';
-import cn from 'classnames';
 
 export enum EStatus {
-    ERROR = "error",
-    NORMAL = "normal",
-    WARNING = "warning",
+  ERROR = 'error',
+  NORMAL = 'normal',
+  WARNING = 'warning',
 }
 
-export const Indicator = ({status}: { status: EStatus }) => {
-    return (
-        <div className={cn(css[status],css.container )}>
-            <IndicatorIcon/>
-        </div>
-    )
+export const Indicator = ({ status }: { status: EStatus }) => {
+  return (
+    <div className={classnames(css[status], css.container)}>
+      <IndicatorIcon />
+    </div>
+  );
 };
-
