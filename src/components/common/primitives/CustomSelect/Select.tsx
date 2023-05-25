@@ -25,13 +25,13 @@ const Select: FC<TSelectProps> = ({
   };
 
   return (
-    <div className={styles.select}>
+    <div className={classNames(styles[fieldName], styles.select)}>
       <button
         className={styles.button}
         type="button"
         id={fieldName}
         onClick={openCloseOptions}>
-        {`${text} ${get(state, searchField)}`}
+        {`${text ?? ''} ${get(state, searchField)}`}
         <Arrow
           id={fieldName}
           className={classNames(styles.arrow, { [styles.active]: activeSelectName })}
@@ -50,7 +50,7 @@ const Select: FC<TSelectProps> = ({
                   className={styles.options__item}
                   key={item.id}
                   onClick={() => handleChangeValue(item)}>
-                  <span>{`${text} ${get(item, searchField)}`}</span>
+                  <span>{`${text ?? ''} ${get(item, searchField)}`}</span>
                 </button>
               );
             })}

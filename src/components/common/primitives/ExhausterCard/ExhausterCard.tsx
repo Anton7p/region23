@@ -64,7 +64,7 @@ export const ExhausterCard = ({
   const [activeRotor, setActiveRotor] = useState<TRotor>(rotors[0]);
   const navigate = useNavigate();
   const handleRouteChange = (id: number) => {
-    navigate(`/${urls.chart}/${id}`);
+    navigate(`/${urls.monitoring}/${id}`);
   };
   return (
     <div className={css.card}>

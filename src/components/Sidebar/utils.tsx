@@ -14,7 +14,7 @@ const getNavigationConfig = (): Navigation[] => {
     },
     {
       text: 'Мониторинг',
-      link: `/${urls.chart}`,
+      link: `/${urls.monitoring}`,
       icon: <Monitoring />,
     },
     {

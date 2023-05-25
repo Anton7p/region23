@@ -1,6 +1,6 @@
 export const urls = {
   home: '/',
-  chart: 'chart',
+  monitoring: 'monitoring',
   analytics: 'analytics',
   notFound: '*',
 };

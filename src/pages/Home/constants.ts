@@ -1,5 +1,5 @@
-import { EStatus } from '../Indicator';
-import { TExhauster } from '../ExhausterCard';
+import { TExhauster } from '../../components/common/primitives/ExhausterCard';
+import { EStatus } from '../../components/common/primitives/Indicator';
 
 export const exhausters: TExhauster[] = [
   {

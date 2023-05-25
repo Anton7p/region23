@@ -7,5 +7,5 @@ export type TSelectProps = {
   fieldName: string;
   comparisonField?: string;
   searchField?: string;
-  text: string;
+  text?: string;
 };

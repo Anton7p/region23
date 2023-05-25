@@ -1,0 +1,11 @@
+@import '../../styles/adaptive-properties.scss';
+.page {
+  overflow: auto;
+  height: calc(100vh - 250px);
+  display: flex;
+  flex-wrap: wrap;
+  @include adaptive-property('margin-top', 40px, 30px, 25px);
+  @include adaptive-property('padding-bottom', 40px, 30px, 25px);
+  @include adaptive-property('margin-left', 110px, 90px, 70px);
+  @include adaptive-property('margin-right', 16px, 14px, 12px);
+}

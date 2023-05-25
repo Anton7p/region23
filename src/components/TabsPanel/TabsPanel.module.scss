@@ -16,6 +16,7 @@
   cursor: pointer;
   transition: color var(--td) ease-in-out;
   height: 56px;
+
   span {
     @include adaptive-property('font-size', 18px, 16px, 14px)
   }
@@ -40,5 +41,29 @@
     &:hover {
       border-bottom-color: var(--bs-primary);
     }
+  }
+}
+
+
+.mobile {
+  width: 100%;
+  display: none;
+  @include adaptive-property('padding-left', 130px, 100px, 90px);
+  @include adaptive-property('padding-right', 130px, 100px, 90px);
+  @include adaptive-property('padding-bottom', 30px, 20px, 10px);
+  @include adaptive-property('padding-top', 30px, 20px, 10px);
+  @media (max-width: $max-tablet-width) {
+    display: flex;
+  }
+  @include adaptive-property('font-size', 18px, 16px, 14px);
+  button{
+    border: none;
+  }
+}
+
+.desktop {
+  display: flex;
+  @media (max-width: $max-tablet-width) {
+    display: none;
   }
 }
