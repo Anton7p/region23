@@ -12,6 +12,7 @@
 
   .title {
     white-space: nowrap;
+
     .name {
       display: flex;
       justify-content: space-between;
@@ -26,10 +27,13 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    @include adaptive-property('height', 70px, 60px, 50px);
+    flex-wrap: wrap;
+    gap: 10px;
     background: var(--bs-secondary);
     @include adaptive-property('padding-left', 16px, 14px, 12px);
     @include adaptive-property('padding-right', 16px, 14px, 12px);
+    @include adaptive-property('padding-top', 20px, 18px, 16px);
+    @include adaptive-property('padding-bottom', 20px, 18px, 16px);
   }
 
   .icon {
@@ -70,8 +74,6 @@
         width: 100%;
 
         span {
-          @include adaptive-property('padding-left', 10px, 8px, 6px);
-          @include adaptive-property('padding-right', 10px, 8px, 6px);
           @include adaptive-property('border-radius', 6px, 4px, 2px);
           background: var(--bs-bg-gray);
           @include adaptive-property('font-size', 20px, 18px, 16px);
@@ -175,6 +177,7 @@
     align-items: center;
 
     @include adaptive-property('gap', 8px, 6px, 4px);
+
     &__title {
       width: 100%;
       display: flex;
@@ -182,7 +185,7 @@
       align-items: center;
       @include adaptive-property('gap', 8px, 6px, 4px);
       @include adaptive-property('font-size', 20px, 18px, 13px);
-      white-space: nowrap;
+
       svg {
         max-width: 24px;
         max-height: 24px;
@@ -203,7 +206,16 @@
 
 .additional {
   overflow: hidden;
-  @include adaptive-property('height', 520px, 520px, 400px);
+  height: 520px;
+  @media (max-width: 768px) {
+    height: 480px;
+  }
+  @media (max-width: 500px) {
+    height: 420px;
+  }
+  @media (max-width: 425px) {
+    height: 400px;
+  }
   transition: height 0.3s ease-in-out;
 }
 
