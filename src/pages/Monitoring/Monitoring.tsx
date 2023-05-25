@@ -1,31 +1,39 @@
-import { useParams } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
 
 import styles from './Monitoring.module.scss';
 import withLayout from '../../HOCs/withLayout';
-import Chart from '../../components/common/primitives/Chart/Chart';
-// import { useSearchParams } from 'react-router-dom';
-import currentStator from '../../json/currentStator.json';
-import currentRotorFirst from '../../json/currentRotorFirst.json';
-import currentRotorSecond from '../../json/currentRotorSecond.json';
+
+import CurrentCharts from './CurrentCharts';
+import OilTemperatureCharts from './OilTemperatureCharts';
+import OilPressureCharts from './OilPressureCharts';
+import BearingTemperatureCharts from './BearingTemperatureCharts';
+import VibrationCharts from './VibrationCharts';
+import LongitudinalVibrationCharts from './LongitudinalVibrationCharts';
 
 const Monitoring = () => {
-  const { id } = useParams();
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const tab = searchParams.get('tab') ?? 'current';
+  const [searchParams] = useSearchParams();
+  const tab = searchParams.get('tab') ?? 'current';
 
-  return (
-    <div className={styles.page}>
-      <Chart currentField={`ЭКСГАУСТЕР ${id || 4}. ТОК СТАТОРА`} data={currentStator} />
-      <Chart
-        currentField={`ЭКСГАУСТЕР ${id || 4}. ТОК РОТОРА 1`}
-        data={currentRotorFirst}
-      />
-      <Chart
-        currentField={`ЭКСГАУСТЕР ${id || 4}. ТОК РОТОРА2`}
-        data={currentRotorSecond}
-      />
-    </div>
-  );
+  const renderCharts = () => {
+    switch (tab) {
+      case 'current':
+        return <CurrentCharts />;
+      case 'oilTemperature':
+        return <OilTemperatureCharts />;
+      case 'oilPressure':
+        return <OilPressureCharts />;
+      case 'bearingTemperature':
+        return <BearingTemperatureCharts />;
+      case 'vibration':
+        return <VibrationCharts />;
+      case 'longitudinalVibration':
+        return <LongitudinalVibrationCharts />;
+      default:
+        return null;
+    }
+  };
+
+  return <div className={styles.page}>{renderCharts()}</div>;
 };
 
 export default withLayout(Monitoring, {

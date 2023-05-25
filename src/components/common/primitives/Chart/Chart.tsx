@@ -17,12 +17,13 @@ import css from './Chart.module.scss';
 export type TChart = {
   data: Record<string, number | string>[];
   currentField: string;
+  title: string;
 };
 
-const Chart = ({ data, currentField }: TChart) => {
+const Chart = ({ data, currentField, title }: TChart) => {
   return (
     <div className={css.chart}>
-      <h3>{currentField}</h3>
+      <h3>{title}</h3>
       <ResponsiveContainer>
         <LineChart
           width={1000}
@@ -32,7 +33,7 @@ const Chart = ({ data, currentField }: TChart) => {
               DT: moment(item.DT).format('h:mm:ss'),
             };
           })}
-          margin={{ top: 10, right: 20, bottom: 70, left: -20 }}>
+          margin={{ top: 10, right: 20, bottom: 70, left: -10 }}>
           <Line
             dot={false}
             type="monotone"
