@@ -1,0 +1,18 @@
+export enum EExhausterField {
+  LONGITUDINAL_VIBRATION_SUPPORT_FOUR = 'ВИБРАЦИЯ НА ОПОРЕ 4. ПРОДОЛЬНАЯ.',
+  LONGITUDINAL_VIBRATION_SUPPORT_THIRD = 'ВИБРАЦИЯ НА ОПОРЕ 3. ПРОДОЛЬНАЯ.',
+  VIBRATION_SUPPORT_FIRST = 'ВИБРАЦИЯ НА ОПОРЕ 1',
+  VIBRATION_SUPPORT_SECOND = 'ВИБРАЦИЯ НА ОПОРЕ 2',
+  VIBRATION_SUPPORT_THIRD = 'ВИБРАЦИЯ НА ОПОРЕ 3',
+  VIBRATION_SUPPORT_FOUR = 'ВИБРАЦИЯ НА ОПОРЕ 4',
+  OIL_TEMPERATURE_OIL_BLOCK = 'ТЕМПЕРАТУРА МАСЛА В МАСЛОБЛОКЕ',
+  OIL_TEMPERATURE_SYSTEM = 'ТЕМПЕРАТУРА МАСЛА В СИСТЕМЕ',
+  BEARING_TEMPERATURE_FIRST = 'ТЕМПЕРАТУРА ПОДШИПНИКА НА ОПОРЕ 1',
+  BEARING_TEMPERATURE_SECOND = 'ТЕМПЕРАТУРА ПОДШИПНИКА НА ОПОРЕ 2',
+  BEARING_TEMPERATURE_THIRD = 'ТЕМПЕРАТУРА ПОДШИПНИКА НА ОПОРЕ 3',
+  BEARING_TEMPERATURE_FOUR = 'ТЕМПЕРАТУРА ПОДШИПНИКА НА ОПОРЕ 4',
+  OIL_PRESSURE = 'ДАВЛЕНИЕ МАСЛА В СИСТЕМЕ',
+  CURRENT_STATOR = 'ТОК СТАТОРА',
+  CURRENT_ROTOR_FIRST = 'ТОК РОТОРА 2',
+  CURRENT_ROTOR_SECOND = 'ТОК РОТОРА 1',
+}

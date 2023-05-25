@@ -175,8 +175,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-
-    @include adaptive-property('gap', 8px, 6px, 4px);
+       @include adaptive-property('gap', 8px, 6px, 4px);
 
     &__title {
       width: 100%;
@@ -185,7 +184,7 @@
       align-items: center;
       @include adaptive-property('gap', 8px, 6px, 4px);
       @include adaptive-property('font-size', 20px, 18px, 13px);
-
+      text-transform: lowercase;
       svg {
         max-width: 24px;
         max-height: 24px;

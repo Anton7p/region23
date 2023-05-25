@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router';
 import classNames from 'classnames';
+import { map, random } from 'lodash';
+import moment from 'moment';
 
 import css from './ExhausterCard.module.scss';
 
@@ -20,10 +22,13 @@ import Select from '../CustomSelect/Select';
 
 import { urls } from '../../../../constants/urls';
 
+import { EExhausterField } from '../../../../pages/Home/types';
+
 export type TExhauster = {
   status: EStatus;
-  exhausterNumber: number;
-  rotors: TRotor[];
+  exhausterNumber: string;
+  additional: boolean;
+  exhausterValue: Record<string, number | string>;
 };
 
 export const getRotorIcon = (rotorNumber: number) => {
@@ -39,31 +44,25 @@ export const getRotorIcon = (rotorNumber: number) => {
   }
 };
 
-export type TRotor = {
-  rotorNumber: number;
-  lastReplacementDate: string;
-  forecastReplacementDate: number;
-  forecastDate: number;
-  forecastReplacementStatus: EStatus;
-  oilLevel: number;
-  oilLevelStatus: EStatus;
-  vibration: number;
-  temperature: number;
-  vibrationStatus: EStatus;
-  temperatureStatus: EStatus;
-};
 type TExhausterCardProps = {
   additional: boolean;
 } & TExhauster;
 export const ExhausterCard = ({
   status,
   exhausterNumber,
-  rotors,
+  exhausterValue,
   additional,
 }: TExhausterCardProps) => {
-  const [activeRotor, setActiveRotor] = useState<TRotor>(rotors[0]);
+  const [activeSupport, setActiveSupport] = useState<Record<string, number | string>>({
+    value: 'ОПОРA 1',
+    id: 1,
+    vibration: exhausterValue[EExhausterField.VIBRATION_SUPPORT_FIRST],
+    bearingTemperature: exhausterValue[EExhausterField.BEARING_TEMPERATURE_FIRST],
+  });
+
   const navigate = useNavigate();
-  const handleRouteChange = (id: number) => {
+
+  const handleRouteChange = (id: string) => {
     navigate(`/${urls.monitoring}/${id}`);
   };
   return (
@@ -78,132 +77,173 @@ export const ExhausterCard = ({
         </Button>
       </div>
       <div className={css.forecast}>
-        {activeRotor && (
+        {activeSupport && (
           <div className={css.forecast__replacement}>
             <span className={css.forecast__replacement__title}>
-              Последняя замена ротера
+              Последняя замена опоры
             </span>
             <div className={css.forecast__replacement__content}>
-              <span
-                className={
-                  css.content__date
-                }>{`${activeRotor.forecastReplacementDate} сут`}</span>
+              <span className={css.content__date}>{`${random(1, 30)} сут`}</span>
               <div className={css.content__forecast}>
                 <span>
-                  Прогноз <Indicator status={activeRotor.forecastReplacementStatus} />
+                  Прогноз{' '}
+                  <Indicator
+                    status={
+                      [EStatus.ERROR, EStatus.WARNING, EStatus.NORMAL][random(1, 3)]
+                    }
+                  />
                 </span>
-                <span>{`${activeRotor.forecastDate} сут`}</span>
+                <span>{`${random(1, 30)} сут`}</span>
               </div>
             </div>
           </div>
         )}
-        {activeRotor && (
-          <div className={css.property}>
-            <div className={css.property__content}>
-              <span className={css.property__content__title}>
-                <ElectricIcon />
-                Ток ротора
-              </span>
-              <span className={css.property__content__value}>
-                {activeRotor.oilLevel} A
-              </span>
-              <Indicator status={activeRotor.oilLevelStatus} />
-            </div>
-            <div className={css.property__content}>
-              <span className={css.property__content__title}>
-                <ElectricIcon />
-                Ток статора
-              </span>
-              <span className={css.property__content__value}>
-                {activeRotor.oilLevel} A
-              </span>
-              <Indicator status={activeRotor.oilLevelStatus} />
-            </div>
-            <div className={css.property__content}>
-              <span className={css.property__content__title}>
-                <OilIcon />
-                Давление масла в системе
-              </span>
-              <span className={css.property__content__value}>
-                {activeRotor.oilLevel} кПа
-              </span>
-              <Indicator status={activeRotor.oilLevelStatus} />
-            </div>
-            <div className={css.property__content}>
-              <span className={css.property__content__title}>
-                <TemperatureIcon />
-                Температура масла в системе
-              </span>
-              <span className={css.property__content__value}>
-                {activeRotor.temperature} С
-              </span>
-              <Indicator status={activeRotor.temperatureStatus} />
-            </div>
-            <div className={css.property__content}>
-              <span className={css.property__content__title}>
-                <TemperatureIcon />
-                Температура масла в маслоблоке
-              </span>
-              <span className={css.property__content__value}>
-                {activeRotor.temperature} С
-              </span>
-              <Indicator status={activeRotor.temperatureStatus} />
-            </div>
-          </div>
-        )}
+        <div className={css.property}>
+          {map(
+            [
+              {
+                value: EExhausterField.CURRENT_ROTOR_FIRST,
+                icon: <ElectricIcon />,
+                unitMeasurements: 'A',
+              },
+              {
+                value: EExhausterField.CURRENT_STATOR,
+                icon: <ElectricIcon />,
+                unitMeasurements: 'A',
+              },
+              {
+                value: EExhausterField.CURRENT_ROTOR_SECOND,
+                icon: <ElectricIcon />,
+                unitMeasurements: 'A',
+              },
+              {
+                value: EExhausterField.OIL_PRESSURE,
+                icon: <OilIcon />,
+                unitMeasurements: 'кПа',
+              },
+              {
+                value: EExhausterField.OIL_TEMPERATURE_SYSTEM,
+                icon: <OilIcon />,
+                unitMeasurements: 'кПа',
+              },
+              {
+                value: EExhausterField.OIL_TEMPERATURE_OIL_BLOCK,
+                icon: <OilIcon />,
+                unitMeasurements: 'кПа',
+              },
+            ],
+            (item) => (
+              <div className={css.property__content}>
+                <span className={css.property__content__title}>
+                  {item.icon}
+                  {item.value}
+                </span>
+                <span className={css.property__content__value}>
+                  {exhausterValue[item.value]} {item.unitMeasurements}
+                </span>
+                <Indicator
+                  status={[EStatus.ERROR, EStatus.WARNING, EStatus.NORMAL][random(0, 2)]}
+                />
+              </div>
+            )
+          )}
+        </div>
       </div>
 
       <div className={classNames({ [css.open]: !additional }, css.additional)}>
         <div className={css.forecast__item}>
           <div className={css.forecast__item__date}>
             <Select
-              text="ОПОРА"
-              fieldName="activeRotor"
-              state={activeRotor}
-              searchField="rotorNumber"
-              options={rotors}
-              setState={(item) => setActiveRotor(item as TRotor)}
+              fieldName="activeSupport"
+              state={activeSupport}
+              searchField="value"
+              options={[
+                {
+                  value: 'ОПОРA 1',
+                  id: 1,
+                  vibration: exhausterValue[EExhausterField.VIBRATION_SUPPORT_FIRST],
+                  bearingTemperature:
+                    exhausterValue[EExhausterField.BEARING_TEMPERATURE_FIRST],
+                },
+                {
+                  value: 'ОПОРA 2',
+                  id: 2,
+                  vibration: exhausterValue[EExhausterField.VIBRATION_SUPPORT_SECOND],
+                  bearingTemperature:
+                    exhausterValue[EExhausterField.BEARING_TEMPERATURE_SECOND],
+                },
+                {
+                  value: 'ОПОРA 3',
+                  id: 3,
+                  vibration: exhausterValue[EExhausterField.VIBRATION_SUPPORT_THIRD],
+                  longitudinalVibration:
+                    exhausterValue[EExhausterField.LONGITUDINAL_VIBRATION_SUPPORT_THIRD],
+                  bearingTemperature:
+                    exhausterValue[EExhausterField.BEARING_TEMPERATURE_THIRD],
+                },
+                {
+                  value: 'ОПОРA 4',
+                  id: 4,
+                  vibration: exhausterValue[EExhausterField.VIBRATION_SUPPORT_FOUR],
+                  longitudinalVibration:
+                    exhausterValue[EExhausterField.LONGITUDINAL_VIBRATION_SUPPORT_FOUR],
+                  bearingTemperature:
+                    exhausterValue[EExhausterField.BEARING_TEMPERATURE_FOUR],
+                },
+              ]}
+              setState={(item) => setActiveSupport(item)}
             />
             <span className={css.forecast__item__date}>
               {' '}
-              {activeRotor.lastReplacementDate}
+              {moment(exhausterValue.DT).format('DD.MM.YYYY')}
             </span>
           </div>
         </div>
 
-        <div className={css.icon}>{getRotorIcon(activeRotor.rotorNumber)}</div>
+        <div className={css.icon}>{getRotorIcon(Number(activeSupport.id))}</div>
 
         <div className={css.property}>
-          <div className={css.property__content}>
-            <span className={css.property__content__title}>
-              <VibrationIcon />
-              Вибрация продолная
-            </span>
-            <span className={css.property__content__value}>
-              {activeRotor.oilLevel} мм/c
-            </span>
-            <Indicator status={activeRotor.oilLevelStatus} />
-          </div>
-          <div className={css.property__content}>
-            <span className={css.property__content__title}>
-              <VibrationIcon />
-              Вибрация
-            </span>
-            <span className={css.property__content__value}>
-              {activeRotor.vibration} мм/c
-            </span>
-            <Indicator status={activeRotor.vibrationStatus} />
-          </div>
-          <div className={css.property__content}>
-            <span className={css.property__content__title}>
-              <TemperatureIcon />
-              Температура подшипника
-            </span>
-            <span className={css.property__content__value}>
-              {activeRotor.temperature} С
-            </span>
-            <Indicator status={activeRotor.temperatureStatus} />
-          </div>
+          {map(
+            [
+              {
+                value: 'vibration',
+                icon: <VibrationIcon />,
+                unitMeasurements: 'мм/c',
+                text: 'Вибрация',
+              },
+              {
+                value: 'longitudinalVibration',
+                icon: <VibrationIcon />,
+                unitMeasurements: 'мм/c',
+                text: 'Вибрация продолная',
+              },
+              {
+                value: 'bearingTemperature',
+                icon: <TemperatureIcon />,
+                unitMeasurements: 'С',
+                text: 'Температура подшипника',
+              },
+            ],
+            (item) => {
+              if (!activeSupport[item.value]) return null;
+              return (
+                <div className={css.property__content}>
+                  <span className={css.property__content__title}>
+                    {item.icon}
+                    {item.text}
+                  </span>
+                  <span className={css.property__content__value}>
+                    {activeSupport[item.value]} мм/c
+                  </span>
+                  <Indicator
+                    status={
+                      [EStatus.ERROR, EStatus.WARNING, EStatus.NORMAL][random(0, 2)]
+                    }
+                  />
+                </div>
+              );
+            }
+          )}
         </div>
       </div>
     </div>
