@@ -17,35 +17,31 @@
 .additional {
   color: var(--bs-white);;
   background: var(--bs-gray);
-  @include adaptive-property('font-size', 20px, 18px, 16px);
-  @include adaptive-property('height', 40px, 36px, 32px);
-  @include adaptive-property('padding-left', 32px, 28px, 24px);
-  @include adaptive-property('padding-right', 32px, 28px, 24px);
-  @include adaptive-property('border-radius', 6px, 6px, 5px);
+  @include adaptive-property('font-size', 20px, 18px, 12px);
+  @include adaptive-property('height', 40px, 36px, 28px);
+  @include adaptive-property('padding-left', 32px, 28px, 20px);
+  @include adaptive-property('padding-right', 32px, 28px, 20px);
+  @include adaptive-property('border-radius', 6px, 6px, 3px);
 }
 
 .card {
-  svg {
-    path {
-      fill: var(--bs-gray-dark);
-    }
-    color:var(--bs-white);;
-    @include adaptive-property('width', 35px, 30px, 25px);
-    @include adaptive-property('height', 35px, 30px, 25px);
-  }
   background-color: var(--bs-white);
-  @include adaptive-property('border-radius', 6px, 6px, 5px);
   box-shadow: 0 1px 1px 0 var(--bs-white);
-  transition: 0.2s all;
+  @include adaptive-property('font-size', 20px, 18px, 12px);
+  @include adaptive-property('border-radius', 6px, 6px, 5px);
   @include adaptive-property('padding-left', 16px, 14px, 12px);
   &:active {
     transform: scale(0.98);
     box-shadow: 0 0.5px 0.5px 0 var(--bs-white);
   }
-}
 
-.forecast {
-  text-decoration: underline;
-  background: initial;
-  color: var(--bs-indigo);
+  svg {
+    path {
+      fill: var(--bs-gray-dark);
+    }
+
+    color: var(--bs-white);;
+    @include adaptive-property('width', 35px, 30px, 20px);
+    @include adaptive-property('height', 35px, 30px, 20px);
+  }
 }

@@ -14,7 +14,6 @@
 .control {
   display: flex;
   width: 100%;
-
   @include adaptive-property('gap', 30px, 20px, 10px);
   justify-content: flex-start;
   align-items: center;
@@ -28,7 +27,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-
+  @include adaptive-property('font-size', 20px, 18px, 12px);
   &__name {
     display: flex;
     justify-content: center;
