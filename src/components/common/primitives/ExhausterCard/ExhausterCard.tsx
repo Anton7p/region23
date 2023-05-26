@@ -69,7 +69,6 @@ export const ExhausterCard = ({
     <div className={css.card}>
       <div className={css.title}>
         <div className={css.name}>
-          <Indicator status={status} />
           <span> {`Эксгаустер №${exhausterNumber}`}</span>
         </div>
         <Button className="card" onClick={() => handleRouteChange(exhausterNumber)}>
@@ -86,7 +85,7 @@ export const ExhausterCard = ({
               <span className={css.content__date}>{`${random(1, 30)} сут`}</span>
               <div className={css.content__forecast}>
                 <span>
-                  Прогноз{' '}
+                  Прогноз
                   <Indicator
                     status={
                       [EStatus.ERROR, EStatus.WARNING, EStatus.NORMAL][random(1, 3)]
@@ -123,13 +122,13 @@ export const ExhausterCard = ({
               },
               {
                 value: EExhausterField.OIL_TEMPERATURE_SYSTEM,
-                icon: <OilIcon />,
-                unitMeasurements: 'кПа',
+                icon: <TemperatureIcon />,
+                unitMeasurements: 'C',
               },
               {
                 value: EExhausterField.OIL_TEMPERATURE_OIL_BLOCK,
-                icon: <OilIcon />,
-                unitMeasurements: 'кПа',
+                icon: <TemperatureIcon />,
+                unitMeasurements: 'C',
               },
             ],
             (item) => (
@@ -141,9 +140,6 @@ export const ExhausterCard = ({
                 <span className={css.property__content__value}>
                   {exhausterValue[item.value]} {item.unitMeasurements}
                 </span>
-                <Indicator
-                  status={[EStatus.ERROR, EStatus.WARNING, EStatus.NORMAL][random(0, 2)]}
-                />
               </div>
             )
           )}
@@ -194,7 +190,6 @@ export const ExhausterCard = ({
               setState={(item) => setActiveSupport(item)}
             />
             <span className={css.forecast__item__date}>
-              {' '}
               {moment(exhausterValue.DT).format('DD.MM.YYYY')}
             </span>
           </div>
@@ -215,7 +210,7 @@ export const ExhausterCard = ({
                 value: 'longitudinalVibration',
                 icon: <VibrationIcon />,
                 unitMeasurements: 'мм/c',
-                text: 'Вибрация продолная',
+                text: 'Вибрация продольная',
               },
               {
                 value: 'bearingTemperature',
@@ -235,11 +230,6 @@ export const ExhausterCard = ({
                   <span className={css.property__content__value}>
                     {activeSupport[item.value]} мм/c
                   </span>
-                  <Indicator
-                    status={
-                      [EStatus.ERROR, EStatus.WARNING, EStatus.NORMAL][random(0, 2)]
-                    }
-                  />
                 </div>
               );
             }
