@@ -8,7 +8,8 @@ import {
   CartesianGrid,
   XAxis,
   YAxis,
-  Tooltip,
+  ReferenceLine,
+  Legend,
   ResponsiveContainer,
 } from 'recharts';
 
@@ -33,7 +34,7 @@ const Chart = ({ data, currentField, title }: TChart) => {
               DT: moment(item.DT).format('h:mm:ss'),
             };
           })}
-          margin={{ top: 10, right: 20, bottom: 70, left: -10 }}>
+          margin={{ top: 10, right: 10, bottom: 70, left: -24 }}>
           <Line
             dot={false}
             type="monotone"
@@ -41,10 +42,26 @@ const Chart = ({ data, currentField, title }: TChart) => {
             stroke="var(--bs-primary)"
             connectNulls
           />
+          <Legend />
+          <ReferenceLine
+            className={css.line}
+            strokeWidth={3}
+            y={252}
+            fillOpacity={10}
+            label="M1"
+            stroke="var(--bs-red)"
+          />
+          <ReferenceLine
+            className={css.line}
+            y={248}
+            strokeWidth={3}
+            fillOpacity={10}
+            label="M3"
+            stroke="var(--bs-warning)"
+          />
           <CartesianGrid vertical strokeDasharray="10 10" />
           <XAxis dataKey="DT" />
           <YAxis dataKey={currentField} domain={['auto', 'auto']} />
-          <Tooltip />
         </LineChart>
       </ResponsiveContainer>
     </div>

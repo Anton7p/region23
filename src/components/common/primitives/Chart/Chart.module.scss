@@ -1,6 +1,10 @@
 @import '../../../../styles/adaptive-properties.scss';
 
 .chart {
-  width: 100%;
+  width: 99%;
   height: 100%;
+}
+
+.line{
+  @include adaptive-property('font-size', 20px, 18px, 13px);
 }
