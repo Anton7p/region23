@@ -9,7 +9,6 @@ import HomeIndicator from './HomeIndicator';
 import { Button } from '../../components/common/primitives';
 import exhausters from '../../json/common.json';
 import { ExhausterCard } from '../../components/common/primitives/ExhausterCard';
-import { EStatus } from '../../components/common/primitives/Indicator';
 
 const Home: FC = () => {
   const [additional, setAdditional] = useState(false);
@@ -26,7 +25,6 @@ const Home: FC = () => {
         {map(entries(exhausters), ([exhausterNumber, exhausterValue]) => {
           return (
             <ExhausterCard
-              status={EStatus.NORMAL}
               key={exhausterValue.DT}
               exhausterValue={exhausterValue}
               exhausterNumber={exhausterNumber}

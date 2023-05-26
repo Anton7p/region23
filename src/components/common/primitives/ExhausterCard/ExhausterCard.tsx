@@ -25,7 +25,6 @@ import { urls } from '../../../../constants/urls';
 import { EExhausterField } from '../../../../pages/Home/types';
 
 export type TExhauster = {
-  status: EStatus;
   exhausterNumber: string;
   additional: boolean;
   exhausterValue: Record<string, number | string>;
@@ -48,7 +47,6 @@ type TExhausterCardProps = {
   additional: boolean;
 } & TExhauster;
 export const ExhausterCard = ({
-  status,
   exhausterNumber,
   exhausterValue,
   additional,
