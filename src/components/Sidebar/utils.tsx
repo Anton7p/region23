@@ -18,7 +18,7 @@ const getNavigationConfig = (): Navigation[] => {
       icon: <Monitoring />,
     },
     {
-      text: 'Прогноз',
+      text: 'Неисправности',
       link: `/${urls.analytics}`,
       icon: <Analytics />,
     },

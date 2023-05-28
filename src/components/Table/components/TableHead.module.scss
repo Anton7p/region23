@@ -9,8 +9,7 @@
     cursor: pointer;
     padding: 16px 14px;
     text-align: left;
-    color: white;
-    background-color: var(--bs-light);
+
     font-size: 12px;
     line-height: 16px;
     text-transform: uppercase;
@@ -20,11 +19,19 @@
 
 
 .exhauster .head {
+
+  width: 100%;
   &__tr {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 47px;
+    &__th {
+      color: #191919;
+      height: auto;
+      background-color: var(--bs-secondary);
+      @include adaptive-property('font-size', 14px, 13px, 12px);
+    }
   }
 }
 
@@ -36,6 +43,7 @@
 
   &__th {
     height: auto;
+    color: white;
     background-color: var(--bs-secondary);
     @include adaptive-property('font-size', 14px, 13px, 12px);
   }

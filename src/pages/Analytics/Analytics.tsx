@@ -19,7 +19,7 @@ const Analytics = () => {
 };
 
 export default withLayout(Analytics, {
-  title: 'Прогноз',
+  title: 'Неисправности оборудования',
   tabList: [
     { name: 'ЭКСГАУСТЕР 4.', query: 'current' },
     { name: 'ЭКСГАУСТЕР 5.', query: 'oilTemperature' },
