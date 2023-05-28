@@ -23,14 +23,14 @@ export type TChart = {
 const emulate = (data: Record<string, number | string>[], currentField: string) => {
   data.length = 300;
   return data.map((item, i) => {
-    if (i > 150 && i !== 160 && i !== 170) {
+    if (i > 150 && i !== 180 && i !== 230) {
       delete item[currentField];
       return item;
     }
-    if (i === 160) {
+    if (i === 180) {
       item[currentField] = data[39][currentField];
     }
-    if (i === 170) {
+    if (i === 230) {
       item[currentField] = data[3][currentField];
     }
     return item;
@@ -66,7 +66,7 @@ const Chart = ({ data, currentField }: TChart) => {
         />
         <ReferenceLine
           className={css.line}
-          x={moment(data[160].DT).format('h:mm:ss')}
+          x={moment(data[180].DT).format('h:mm:ss')}
           strokeWidth={3}
           fillOpacity={10}
           label="M3"
@@ -74,7 +74,7 @@ const Chart = ({ data, currentField }: TChart) => {
         />
         <ReferenceLine
           className={css.line}
-          x={moment(data[170].DT).format('h:mm:ss')}
+          x={moment(data[230].DT).format('h:mm:ss')}
           strokeWidth={3}
           fillOpacity={10}
           label="M1"
