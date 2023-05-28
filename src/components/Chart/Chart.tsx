@@ -62,7 +62,6 @@ const Chart = ({ data, currentField }: TChart) => {
           x={moment(data[150].DT).format('h:mm:ss')}
           strokeWidth={3}
           fillOpacity={10}
-          label="Текущее значание"
           stroke="var(--bs-primary)"
         />
         <ReferenceLine
