@@ -14,6 +14,8 @@
   @include adaptive-property('margin-right', 16px, 14px, 12px);
   @include adaptive-property('margin-top', 20px, 18px, 16px);
   @include adaptive-property('margin-bottom', 20px, 18px, 16px);
+
 }
-
-
+table, th, td {
+  border: 1px solid black;
+}

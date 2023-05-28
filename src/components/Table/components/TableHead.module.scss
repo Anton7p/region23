@@ -3,7 +3,8 @@
 
   &__tr {
     width: 100%;
-    display: grid;grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   &__th {
@@ -12,7 +13,6 @@
     cursor: pointer;
     padding: 16px 14px;
     text-align: left;
-    border: 1px solid var(--bs-gray-dark);
     background-color: var(--bs-light);
     font-size: 12px;
     line-height: 16px;

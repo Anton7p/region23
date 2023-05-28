@@ -224,8 +224,7 @@
   height: 100%;
   background-color: rgba(220, 53, 69, 0.5);
   color: var(--bs-dark);
-  @include adaptive-property('font-size', 20px, 18px, 13px);
-  @include adaptive-property('gap', 8px, 6px, 4px);
+  @include adaptive-property('font-size', 14px, 12px, 10px);
 }
 
 .normal {
@@ -258,12 +257,12 @@
     text-transform: lowercase;
     width: content-box;
     color: var(--bs-secondary);
+    @include adaptive-property('font-size', 14px, 12px, 10px);
+    @include adaptive-property('gap', 8px, 6px, 4px);
   }
   &__title{
     font-weight: bold;
     text-transform: uppercase;
     color: var(--bs-dark);
-    @include adaptive-property('font-size', 20px, 18px, 13px);
-    @include adaptive-property('gap', 8px, 6px, 4px);
   }
 }
