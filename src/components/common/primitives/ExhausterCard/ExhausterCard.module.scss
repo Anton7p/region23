@@ -224,6 +224,8 @@
   height: 100%;
   background-color: rgba(220, 53, 69, 0.5);
   color: var(--bs-dark);
+  @include adaptive-property('font-size', 20px, 18px, 13px);
+  @include adaptive-property('gap', 8px, 6px, 4px);
 }
 
 .normal {
@@ -261,5 +263,7 @@
     font-weight: bold;
     text-transform: uppercase;
     color: var(--bs-dark);
+    @include adaptive-property('font-size', 20px, 18px, 13px);
+    @include adaptive-property('gap', 8px, 6px, 4px);
   }
 }
