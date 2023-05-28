@@ -20,30 +20,29 @@ export type TChart = {
   currentField: string;
 };
 
-const format = (data: Record<string, number | string>[], currentField: string) => {
+const emulate = (data: Record<string, number | string>[], currentField: string) => {
+  data.length = 300;
   return data.map((item, i) => {
-    if (i > 500 && i !== 600 && i !== 700) {
+    if (i > 150 && i !== 160 && i !== 170) {
       delete item[currentField];
       return item;
     }
-    if (i === 600) {
-      item[currentField] = data[390][currentField];
+    if (i === 160) {
+      item[currentField] = data[39][currentField];
     }
-    if (i === 700) {
-      item[currentField] = data[30][currentField];
+    if (i === 170) {
+      item[currentField] = data[3][currentField];
     }
     return item;
   });
 };
 
 const Chart = ({ data, currentField }: TChart) => {
-  console.log(data[100].DT);
-
   return (
     <ResponsiveContainer>
       <LineChart
         width={1000}
-        data={format(data, currentField).map((item) => {
+        data={emulate(data, currentField).map((item) => {
           return {
             ...item,
             DT: moment(item.DT).format('h:mm:ss'),
@@ -60,7 +59,7 @@ const Chart = ({ data, currentField }: TChart) => {
         <Legend />
         <ReferenceLine
           className={css.line}
-          x={moment(data[500].DT).format('h:mm:ss')}
+          x={moment(data[150].DT).format('h:mm:ss')}
           strokeWidth={3}
           fillOpacity={10}
           label="Текущее значание"
@@ -68,7 +67,7 @@ const Chart = ({ data, currentField }: TChart) => {
         />
         <ReferenceLine
           className={css.line}
-          x={moment(data[600].DT).format('h:mm:ss')}
+          x={moment(data[160].DT).format('h:mm:ss')}
           strokeWidth={3}
           fillOpacity={10}
           label="M3"
@@ -76,7 +75,7 @@ const Chart = ({ data, currentField }: TChart) => {
         />
         <ReferenceLine
           className={css.line}
-          x={moment(data[700].DT).format('h:mm:ss')}
+          x={moment(data[170].DT).format('h:mm:ss')}
           strokeWidth={3}
           fillOpacity={10}
           label="M1"
