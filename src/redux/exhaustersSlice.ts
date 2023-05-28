@@ -10,16 +10,19 @@ export const initialState: TExhaustersState = {
   data: [],
 };
 
-export const loadExhaustersData = createAsyncThunk('exhausters/loadExhausters', () => {
-  return axios({
-    method: 'get',
-    url: `${uri.exhausters}`,
-    responseType: 'stream',
-  }).then((response) => {
-    return response.data;
-  });
-});
-export const startEmulation = createAsyncThunk('exhausters/startEmulation', () => {
+export const loadExhaustersData = createAsyncThunk(
+  'loadExhausters/loadExhausters',
+  () => {
+    return axios({
+      method: 'get',
+      url: `${uri.exhausters}`,
+      responseType: 'stream',
+    }).then((response) => {
+      return response.data;
+    });
+  }
+);
+export const startEmulation = createAsyncThunk('startEmulation/startEmulation', () => {
   return axios({
     method: 'post',
     url: `${uri.start}`,
