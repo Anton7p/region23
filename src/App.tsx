@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { Route, Routes } from 'react-router-dom';
 
 import Home from './pages/Home/Home';
@@ -7,7 +9,16 @@ import ErrorPage from './components/ErrorPage/ErrorPage';
 import Monitoring from './pages/Monitoring/Monitoring';
 import Analytics from './pages/Analytics/Analytics';
 
+import { useAppDispatch } from './hooks/reduxHooks';
+import { loadExhaustersData, startEmulation } from './redux/exhaustersSlice';
+
 const App = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(startEmulation());
+    dispatch(loadExhaustersData());
+  }, [dispatch]);
   return (
     <Routes>
       <Route path={urls.home} element={<Home />} />

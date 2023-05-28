@@ -9,7 +9,3 @@ export type Navigation = {
 export enum ERole {
   OPERATOR = 'operator',
 }
-
-export type SidebarProps = {
-  isHomePage?: boolean;
-};

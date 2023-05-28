@@ -4,25 +4,25 @@
   align-items: center;
   justify-content: center;
   background-color: inherit;
-  &_main {
-    background-color: var(--backgroundMain);
-  }
+
   &_center {
     height: 100vh;
   }
+
   .spinner {
     position: relative;
     border-radius: 50%;
     background-color: inherit;
+
     &::before {
       content: '';
       position: absolute;
       inset: 0;
       border-radius: 50%;
       background: conic-gradient(
-        from 180deg at 50% 50%,
-        #41a017 0deg,
-        rgba(65, 160, 23, 0) 360deg
+                      from 180deg at 50% 50%,
+                      #343a40 0deg,
+                      rgba(65, 160, 23, 0) 360deg
       );
       animation: rotation 1s linear infinite;
     }
@@ -37,18 +37,22 @@
       border-radius: 50%;
       background-color: rgba(255, 255, 255, 0.8);
     }
+
     &_s {
       width: 14px;
       height: 14px;
+
       &::after {
         width: 11px;
         height: 11px;
         background-color: #fff;
       }
     }
+
     &_m {
       width: 48px;
       height: 48px;
+
       &::after {
         width: 40px;
         height: 40px;
