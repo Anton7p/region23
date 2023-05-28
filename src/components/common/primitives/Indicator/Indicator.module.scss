@@ -9,19 +9,19 @@
 
 .error {
   svg * {
-    fill: var(--bs-red)
+    fill: rgba(220, 53, 69, 0.5)
   }
 }
 
 .normal {
   svg * {
-    fill: var(--bs-success)
+    fill:rgba(25, 135 ,84, 0.5)
   }
 }
 
 .warning {
   svg * {
-    fill: var(--bs-warning)
+    fill: rgba(255 ,193 ,7, 0.5)
   }
 }
 

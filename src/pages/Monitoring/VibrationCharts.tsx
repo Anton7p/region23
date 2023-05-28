@@ -14,26 +14,10 @@ const VIBRATION_FOUR = 'ЭКСГАУСТЕР 4. ВИБРАЦИЯ НА ОПОРЕ
 const VibrationCharts = () => {
   return (
     <>
-      <Chart
-        currentField={VIBRATION_FIRST}
-        title="ВИБРАЦИЯ НА ОПОРЕ 1"
-        data={vibrationFirst}
-      />
-      <Chart
-        currentField={VIBRATION_SECOND}
-        title="ВИБРАЦИЯ НА ОПОРЕ 2"
-        data={vibrationSecond}
-      />{' '}
-      <Chart
-        currentField={VIBRATION_THIRD}
-        title="ВИБРАЦИЯ НА ОПОРЕ 3"
-        data={vibrationThird}
-      />{' '}
-      <Chart
-        currentField={VIBRATION_FOUR}
-        title="ВИБРАЦИЯ НА ОПОРЕ 4"
-        data={vibrationFour}
-      />
+      <Chart currentField={VIBRATION_FIRST} data={vibrationFirst} />
+      <Chart currentField={VIBRATION_SECOND} data={vibrationSecond} />{' '}
+      <Chart currentField={VIBRATION_THIRD} data={vibrationThird} />{' '}
+      <Chart currentField={VIBRATION_FOUR} data={vibrationFour} />
     </>
   );
 };

@@ -1,0 +1,19 @@
+@import '../../styles/adaptive-properties.scss';
+
+.table {
+  margin: 5px;
+  background-color: var(--bs-white);
+  border-spacing: 0;
+  overflow: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  height: 100%;
+  @include adaptive-property('margin-left', 16px, 14px, 12px);
+  @include adaptive-property('margin-right', 16px, 14px, 12px);
+  @include adaptive-property('margin-top', 20px, 18px, 16px);
+  @include adaptive-property('margin-bottom', 20px, 18px, 16px);
+}
+
+

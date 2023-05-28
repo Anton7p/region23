@@ -16,13 +16,16 @@ import { ReactComponent as ExhausterFourIcon } from '../../../../assets/images/a
 import { ReactComponent as TemperatureIcon } from '../../../../assets/images/temperature.svg';
 import { ReactComponent as VibrationIcon } from '../../../../assets/images/vibration.svg';
 import { ReactComponent as ElectricIcon } from '../../../../assets/images/electric.svg';
-import { EStatus, Indicator } from '../Indicator';
 import { Button } from '../Button';
 import Select from '../CustomSelect/Select';
 
 import { urls } from '../../../../constants/urls';
 
 import { EExhausterField } from '../../../../pages/Home/types';
+import Table from '../../../Table/Table';
+import { EXHAUSTER_TABLE_CONFIG, ExhausterCardTableField } from './constant/tableConfig';
+import { EStatus } from '../Indicator';
+import { useGetColumnsConfig } from './useGetColumnConfig';
 
 export type TExhauster = {
   exhausterNumber: string;
@@ -42,6 +45,16 @@ export const getRotorIcon = (rotorNumber: number) => {
       return <ExhausterFirstIcon />;
   }
 };
+const malfunctions = [
+  'ЭЛЕКТРОАППАРАТУРА',
+  'ЭЛЕКТРОДВИГАТЕЛЬ ДСПУ-140-84-4',
+  'ПОДШИПНИК ОПОРНЫЙ №2',
+  'РЕДУКТОР ГАЗ. ЗАДВИЖКИ',
+  'ЗАДВИЖКА',
+  'ПОДШИПНИК ОПОРНО-УПОРНЫЙ',
+  'ПОДШИПНИК ОПОРНЫЙ',
+  'РОТОР',
+].splice(0, random(3, 5));
 
 type TExhausterCardProps = {
   additional: boolean;
@@ -57,7 +70,7 @@ export const ExhausterCard = ({
     vibration: exhausterValue[EExhausterField.VIBRATION_SUPPORT_FIRST],
     bearingTemperature: exhausterValue[EExhausterField.BEARING_TEMPERATURE_FIRST],
   });
-
+  const columnsConfig = useGetColumnsConfig(EXHAUSTER_TABLE_CONFIG);
   const navigate = useNavigate();
 
   const handleRouteChange = (id: string) => {
@@ -73,28 +86,33 @@ export const ExhausterCard = ({
           Параметры <ArrowIcon />
         </Button>
       </div>
+      <Table
+        columns={columnsConfig}
+        data={[
+          {
+            [ExhausterCardTableField.CURRENT_STATUS]: [
+              EStatus.ERROR,
+              EStatus.WARNING,
+              EStatus.NORMAL,
+            ][random(0, 2)],
+            [ExhausterCardTableField.PREDICTED_MALFUNCTION]: [
+              EStatus.ERROR,
+              EStatus.WARNING,
+              EStatus.NORMAL,
+            ][random(0, 2)],
+          },
+        ]}
+      />
+      {malfunctions.length && (
+        <div className={css.malfunctions}>
+          <div className={css.malfunctions__title}>Неисправности :</div>
+          {map(malfunctions, (item) => {
+            return <span className={css.malfunctions__item}>{item}</span>;
+          })}
+        </div>
+      )}
+
       <div className={css.forecast}>
-        {activeSupport && (
-          <div className={css.forecast__replacement}>
-            <span className={css.forecast__replacement__title}>
-              Последняя замена опоры
-            </span>
-            <div className={css.forecast__replacement__content}>
-              <span className={css.content__date}>{`${random(1, 30)} сут`}</span>
-              <div className={css.content__forecast}>
-                <span>
-                  Прогноз
-                  <Indicator
-                    status={
-                      [EStatus.ERROR, EStatus.WARNING, EStatus.NORMAL][random(1, 3)]
-                    }
-                  />
-                </span>
-                <span>{`${random(1, 30)} сут`}</span>
-              </div>
-            </div>
-          </div>
-        )}
         <div className={css.property}>
           {map(
             [

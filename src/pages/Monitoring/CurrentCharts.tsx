@@ -12,9 +12,9 @@ const ROTOR_SECOND = `ЭКСГАУСТЕР 4. ТОК РОТОРА2`;
 const CurrentCharts = () => {
   return (
     <>
-      <Chart currentField={STATOR} title="ТОК СТАТОРА" data={currentStator} />
-      <Chart currentField={ROTOR_FIRST} title="ТОК РОТОРА 1 " data={currentRotorFirst} />
-      <Chart currentField={ROTOR_SECOND} title="ТОК РОТОРА 2" data={currentRotorSecond} />
+      <Chart currentField={STATOR} data={currentStator} />
+      <Chart currentField={ROTOR_FIRST} data={currentRotorFirst} />
+      <Chart currentField={ROTOR_SECOND} data={currentRotorSecond} />
     </>
   );
 };

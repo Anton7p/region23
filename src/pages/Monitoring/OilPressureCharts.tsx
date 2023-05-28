@@ -7,13 +7,7 @@ import oilPressure from '../../json/oilPressure.json';
 const OIL_SYSTEM = 'ЭКСГАУСТЕР 4. ДАВЛЕНИЕ МАСЛА В СИСТЕМЕ';
 
 const OilPressureCharts = () => {
-  return (
-    <Chart
-      currentField={OIL_SYSTEM}
-      title="ДАВЛЕНИЕ МАСЛА В СИСТЕМЕ"
-      data={oilPressure}
-    />
-  );
+  return <Chart currentField={OIL_SYSTEM} data={oilPressure} />;
 };
 
 export default OilPressureCharts;

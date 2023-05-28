@@ -1,0 +1,39 @@
+.head {
+  width: 100%;
+
+  &__tr {
+    width: 100%;
+    display: grid;grid-template-columns: 1fr 1fr;
+  }
+
+  &__th {
+    width: 100%;
+    height: 47px;
+    cursor: pointer;
+    padding: 16px 14px;
+    text-align: left;
+    border: 1px solid var(--bs-gray-dark);
+    background-color: var(--bs-light);
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--purple);
+    text-transform: uppercase;
+    position: relative;
+  }
+}
+
+
+.headerContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: move;
+
+  & > div {
+    width: 100%;
+  }
+}
+
+

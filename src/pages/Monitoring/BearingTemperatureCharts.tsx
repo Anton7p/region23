@@ -15,26 +15,13 @@ const BEARING_TEMPERATURE_FOUR = 'ЭКСГАУСТЕР 4. ТЕМПЕРАТУРА
 const VibrationCharts = () => {
   return (
     <>
-      <Chart
-        currentField={BEARING_TEMPERATURE_FIRST}
-        title="ТЕМПЕРАТУРА ПОДШИПНИКА НА ОПОРЕ 1"
-        data={bearingTemperatureFirst}
-      />
+      <Chart currentField={BEARING_TEMPERATURE_FIRST} data={bearingTemperatureFirst} />
       <Chart
         currentField={BEARING_TEMPERATURE_SECOND}
-        title="ТЕМПЕРАТУРА ПОДШИПНИКА НА ОПОРЕ 2"
         data={bearingTemperatureSecond}
       />{' '}
-      <Chart
-        currentField={BEARING_TEMPERATURE_THIRD}
-        title="ТЕМПЕРАТУРА ПОДШИПНИКА НА ОПОРЕ 3"
-        data={bearingTemperatureThird}
-      />{' '}
-      <Chart
-        currentField={BEARING_TEMPERATURE_FOUR}
-        title="ТЕМПЕРАТУРА ПОДШИПНИКА НА ОПОРЕ 4"
-        data={bearingTemperatureFour}
-      />
+      <Chart currentField={BEARING_TEMPERATURE_THIRD} data={bearingTemperatureThird} />{' '}
+      <Chart currentField={BEARING_TEMPERATURE_FOUR} data={bearingTemperatureFour} />
     </>
   );
 };

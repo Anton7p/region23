@@ -12,16 +12,8 @@ const VIBRATION_FOUR = 'ЭКСГАУСТЕР 4. ВИБРАЦИЯ НА ОПОРЕ
 const LongitudinalVibrationCharts = () => {
   return (
     <>
-      <Chart
-        currentField={VIBRATION_THIRD}
-        title="ВИБРАЦИЯ НА ОПОРЕ 3. ПРОДОЛЬНАЯ."
-        data={longitudinalVibrationThird}
-      />{' '}
-      <Chart
-        currentField={VIBRATION_FOUR}
-        title="ВИБРАЦИЯ НА ОПОРЕ 4. ПРОДОЛЬНАЯ."
-        data={longitudinalVibrationFour}
-      />
+      <Chart currentField={VIBRATION_THIRD} data={longitudinalVibrationThird} />{' '}
+      <Chart currentField={VIBRATION_FOUR} data={longitudinalVibrationFour} />
     </>
   );
 };

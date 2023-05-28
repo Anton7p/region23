@@ -1,0 +1,31 @@
+
+@import '../../../styles/adaptive-properties.scss';
+.row {
+
+  &__tr {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    top: 47px;
+    z-index: 10;
+    background-color: var(--bs-white);
+  }
+
+  &__td {
+    border: 1px solid var(--bs-gray-dark);
+    height: 47px;
+    @include adaptive-property('padding-left', 6, 4px, 3px);
+    @include adaptive-property('padding-right', 6px, 4px, 3px);
+    @include adaptive-property('padding-top', 6px, 4px, 3px);
+    @include adaptive-property('padding-bottom', 6px, 4px, 3px);
+    color: var(--bs-gray-dark);
+    font-size: 14px;
+    line-height: 18px;
+    width: 100%;
+    span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: normal;
+    }
+  }
+}

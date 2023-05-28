@@ -10,16 +10,8 @@ const OIL_SYSTEM = 'ЭКСГАУСТЕР 4. ТЕМПЕРАТУРА МАСЛА В
 const OilTemperatureCharts = () => {
   return (
     <>
-      <Chart
-        currentField={OIL_BLOCK}
-        title="ТЕМПЕРАТУРА МАСЛА В МАСЛОБЛОКЕ"
-        data={oilTemperatureOilBlock}
-      />
-      <Chart
-        currentField={OIL_SYSTEM}
-        title="ТЕМПЕРАТУРА МАСЛА В СИСТЕМЕ"
-        data={oilTemperatureOilSystem}
-      />
+      <Chart currentField={OIL_BLOCK} data={oilTemperatureOilBlock} />
+      <Chart currentField={OIL_SYSTEM} data={oilTemperatureOilSystem} />
     </>
   );
 };
