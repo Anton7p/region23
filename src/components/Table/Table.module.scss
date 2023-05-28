@@ -4,6 +4,7 @@
   background-color: var(--bs-white);
   border-spacing: 0;
   height: 100%;
+  width: 100%;
   @include adaptive-property('padding-left', 16px, 14px, 12px);
   @include adaptive-property('padding-right', 16px, 14px, 12px);
   @include adaptive-property('padding-bottom', 20px, 18px, 16px);
@@ -11,8 +12,4 @@
 
 .analytics table, tr, td {
   border: 1px solid white;
-}
-
-.exhauster table {
-  width: 100%;
 }
