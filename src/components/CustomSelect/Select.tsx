@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { get } from 'lodash';
 import classNames from 'classnames';
 
-import { ReactComponent as Arrow } from '../../../../assets/images/select_arrow.svg';
+import { ReactComponent as Arrow } from '../../assets/images/select_arrow.svg';
 
 import styles from './Select.module.scss';
 import { useActiveSelect } from './utils';

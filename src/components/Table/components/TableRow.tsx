@@ -1,16 +1,24 @@
 import React, { FC } from 'react';
 
+import classNames from 'classnames';
 import { Row } from 'react-table';
 
 import styles from './TableRow.module.scss';
 
 type TableRowProps = {
   row: Row<object>;
+  className?: string;
 };
 
-const TableRow: FC<TableRowProps> = ({ row }) => {
+const TableRow: FC<TableRowProps> = ({ row, className }) => {
   return (
-    <tr className={styles.row__tr}>
+    <tr
+      className={classNames(
+        {
+          [styles[className as string]]: className,
+        },
+        styles.row__tr
+      )}>
       {row.cells?.map((cell) => {
         return (
           <td

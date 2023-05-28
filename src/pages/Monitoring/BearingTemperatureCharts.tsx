@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Chart from '../../components/common/primitives/Chart/Chart';
+import Chart from '../../components/Chart/Chart';
 
 import bearingTemperatureFirst from '../../json/bearingTemperatureFirst.json';
 import bearingTemperatureSecond from '../../json/bearingTemperatureSecond.json';

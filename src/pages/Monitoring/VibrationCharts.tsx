@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Chart from '../../components/common/primitives/Chart/Chart';
+import Chart from '../../components/Chart/Chart';
 import vibrationThird from '../../json/vibrationThird.json';
 import vibrationFirst from '../../json/vibrationFirst.json';
 import vibrationFour from '../../json/vibrationFour.json';

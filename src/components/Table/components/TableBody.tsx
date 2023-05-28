@@ -12,14 +12,20 @@ type BodyProps = {
     propGetter?: TableBodyPropGetter<object> | undefined
   ) => TableBodyProps;
   prepareRow: (row: Row<object>) => void;
+  className?: string;
 };
 
-const TableBody: React.FC<BodyProps> = ({ rows, getTableBodyProps, prepareRow }) => {
+const TableBody: React.FC<BodyProps> = ({
+  rows,
+  getTableBodyProps,
+  prepareRow,
+  className,
+}) => {
   return (
     <tbody {...getTableBodyProps()} className={styles.body}>
       {rows.map((row) => {
         prepareRow(row);
-        return <TableRow row={row} />;
+        return <TableRow row={row} className={className} />;
       })}
     </tbody>
   );

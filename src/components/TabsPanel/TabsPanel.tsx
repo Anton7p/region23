@@ -5,7 +5,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { useSearchParams } from 'react-router-dom';
 
 import styles from './TabsPanel.module.scss';
-import Select from '../common/primitives/CustomSelect/Select';
+import Select from '../CustomSelect/Select';
 
 interface TabsProps extends HTMLAttributes<HTMLElement> {
   tabList?: { name: string; query: string }[] | [];

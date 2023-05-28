@@ -1,7 +1,8 @@
-import { ExhausterCardTableField } from '../common/primitives/ExhausterCard/constant/tableConfig';
+import { ExhausterCardTableField } from '../ExhausterCard/constant/tableConfig';
+import { TMessage } from '../../pages/Analytics/types';
 
 export type TColumns = {
   header: string;
-  accessor: ExhausterCardTableField;
-  minWidth: number;
+  accessor: ExhausterCardTableField | TMessage;
+  minWidth?: number;
 };

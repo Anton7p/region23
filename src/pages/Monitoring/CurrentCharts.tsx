@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { lazy } from 'react';
 
-import Chart from '../../components/common/primitives/Chart/Chart';
 import currentStator from '../../json/currentStator.json';
 import currentRotorFirst from '../../json/currentRotorFirst.json';
 import currentRotorSecond from '../../json/currentRotorSecond.json';
+
+const Chart = lazy(() => import('../../components/Chart/Chart'));
 
 const STATOR = `ЭКСГАУСТЕР 4. ТОК СТАТОРА`;
 const ROTOR_FIRST = `ЭКСГАУСТЕР 4. ТОК РОТОРА 1`;

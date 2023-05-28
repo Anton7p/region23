@@ -7,11 +7,13 @@ import styles from './TableHead.module.scss';
 
 type TTableHeadProps = {
   headerGroups: HeaderGroup<object>[];
+  className?: string;
 };
 
-const TableHead: React.FC<TTableHeadProps> = ({ headerGroups }) => {
+const TableHead: React.FC<TTableHeadProps> = ({ headerGroups, className }) => {
   return (
-    <thead className={classNames(styles.head)}>
+    <thead
+      className={classNames({ [styles[className as string]]: className }, styles.head)}>
       {headerGroups?.map((headerGroup) => (
         <tr {...headerGroup.getHeaderGroupProps()} className={styles.head__tr}>
           {headerGroup.headers?.map((column) => {

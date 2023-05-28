@@ -3,10 +3,10 @@ import React, { useMemo } from 'react';
 import { Cell } from 'react-table';
 
 import css from './ExhausterCard.module.scss';
-import { TColumns } from '../../../Table/types';
 
 import { ExhausterCardTableField } from './constant/tableConfig';
 import { EStatus } from '../Indicator';
+import { TColumns } from '../Table/types';
 
 export const EExhausterStatus: Record<string, string> = {
   [EStatus.ERROR]: 'критическая неисправность',

@@ -1,3 +1,16 @@
-.page{
+@import '../../styles/adaptive-properties.scss';
+
+.page {
   width: 100%;
+  @include adaptive-property('margin-top', 40px, 30px, 25px);
+  @include adaptive-property('padding-bottom', 40px, 30px, 25px);
+  @include adaptive-property('padding-left', 110px, 90px, 70px);
+  @include adaptive-property('margin-right', 16px, 14px, 12px);
+  max-height: calc(100% - 228px);
+  flex: 1 1 auto;
+  min-height: 218px;
+  overflow: auto;
+  @media (max-width: 756px) {
+    max-height: calc(100% - 140px);
+  }
 }

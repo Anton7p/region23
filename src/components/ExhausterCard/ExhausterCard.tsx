@@ -7,25 +7,25 @@ import moment from 'moment';
 
 import css from './ExhausterCard.module.scss';
 
-import { ReactComponent as ArrowIcon } from '../../../../assets/images/arrow_left.svg';
-import { ReactComponent as OilIcon } from '../../../../assets/images/oil.svg';
-import { ReactComponent as ExhausterFirstIcon } from '../../../../assets/images/aglo_roto_1.svg';
-import { ReactComponent as ExhausterSecondIcon } from '../../../../assets/images/aglo_roto_2.svg';
-import { ReactComponent as ExhausterThirdIcon } from '../../../../assets/images/aglo_roto_3.svg';
-import { ReactComponent as ExhausterFourIcon } from '../../../../assets/images/aglo_roto_4.svg';
-import { ReactComponent as TemperatureIcon } from '../../../../assets/images/temperature.svg';
-import { ReactComponent as VibrationIcon } from '../../../../assets/images/vibration.svg';
-import { ReactComponent as ElectricIcon } from '../../../../assets/images/electric.svg';
+import { ReactComponent as ArrowIcon } from '../../assets/images/arrow_left.svg';
+import { ReactComponent as OilIcon } from '../../assets/images/oil.svg';
+import { ReactComponent as ExhausterFirstIcon } from '../../assets/images/aglo_roto_1.svg';
+import { ReactComponent as ExhausterSecondIcon } from '../../assets/images/aglo_roto_2.svg';
+import { ReactComponent as ExhausterThirdIcon } from '../../assets/images/aglo_roto_3.svg';
+import { ReactComponent as ExhausterFourIcon } from '../../assets/images/aglo_roto_4.svg';
+import { ReactComponent as TemperatureIcon } from '../../assets/images/temperature.svg';
+import { ReactComponent as VibrationIcon } from '../../assets/images/vibration.svg';
+import { ReactComponent as ElectricIcon } from '../../assets/images/electric.svg';
 import { Button } from '../Button';
 import Select from '../CustomSelect/Select';
 
-import { urls } from '../../../../constants/urls';
-
-import { EExhausterField } from '../../../../pages/Home/types';
-import Table from '../../../Table/Table';
 import { EXHAUSTER_TABLE_CONFIG, ExhausterCardTableField } from './constant/tableConfig';
 import { EStatus } from '../Indicator';
+
+import { EExhausterField } from '../../pages/Home/types';
+import Table from '../Table/Table';
 import { useGetColumnsConfig } from './useGetColumnConfig';
+import { urls } from '../../constants/urls';
 
 export type TExhauster = {
   exhausterNumber: string;
@@ -88,6 +88,7 @@ export const ExhausterCard = ({
       </div>
       <Table
         columns={columnsConfig}
+        className="exhauster"
         data={[
           {
             [ExhausterCardTableField.CURRENT_STATUS]: [
@@ -105,7 +106,9 @@ export const ExhausterCard = ({
       />
       {malfunctions.length && (
         <div className={css.malfunctions}>
-          <div className={css.malfunctions__title}>Неисправности :</div>
+          <div className={css.malfunctions__title}>
+            Неисправности (Наименование тех.места):
+          </div>
           {map(malfunctions, (item) => {
             return <span className={css.malfunctions__item}>{item}</span>;
           })}

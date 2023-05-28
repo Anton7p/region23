@@ -6,9 +6,9 @@ import withLayout from '../../HOCs/withLayout';
 import css from './Home.module.scss';
 
 import HomeIndicator from './HomeIndicator';
-import { Button } from '../../components/common/primitives';
+import { Button } from '../../components/Button';
 import exhausters from '../../json/common.json';
-import { ExhausterCard } from '../../components/common/primitives/ExhausterCard';
+import { ExhausterCard } from '../../components/ExhausterCard';
 
 const Home: FC = () => {
   const [additional, setAdditional] = useState(false);

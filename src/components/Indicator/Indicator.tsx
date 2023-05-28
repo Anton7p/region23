@@ -2,7 +2,7 @@ import React from 'react';
 
 import classnames from 'classnames';
 
-import { ReactComponent as IndicatorIcon } from '../../../../assets/images/indicator.svg';
+import { ReactComponent as IndicatorIcon } from '../../assets/images/indicator.svg';
 
 import css from './Indicator.module.scss';
 

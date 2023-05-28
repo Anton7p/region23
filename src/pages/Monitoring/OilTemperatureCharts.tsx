@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Chart from '../../components/common/primitives/Chart/Chart';
+import Chart from '../../components/Chart/Chart';
 import oilTemperatureOilBlock from '../../json/oilTemperatureOilBlock.json';
 import oilTemperatureOilSystem from '../../json/oilTemperatureSystem.json';
 

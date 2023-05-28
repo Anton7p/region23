@@ -1,7 +1,7 @@
 import React from 'react';
 
 import css from './Home.module.scss';
-import { EStatus, Indicator } from '../../components/common/primitives/Indicator';
+import { EStatus, Indicator } from '../../components/Indicator';
 
 const HomeIndicator = () => {
   return (
