@@ -225,6 +225,7 @@
   background-color: rgba(220, 53, 69, 0.5);
   color: var(--bs-dark);
   @include adaptive-property('font-size', 14px, 10px, 8px);
+  text-align: center;
 }
 
 .normal {
